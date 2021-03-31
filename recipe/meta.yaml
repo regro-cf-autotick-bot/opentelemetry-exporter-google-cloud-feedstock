@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-exporter-google-cloud" %}
-{% set version = "0.17b0" %}
+{% set version = "0.18b0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b5573d858f23d0235dd98e66cfa18021a87462aeee98f3820a79e9200f0bf76b
+  sha256: fb5a01892612c6cb963f0f21012d6889469923a76b2c157ff0b2212c486015c0
 
 build:
   number: 0
