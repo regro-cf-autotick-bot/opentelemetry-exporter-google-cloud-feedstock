@@ -7,24 +7,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b5573d858f23d0235dd98e66cfa18021a87462aeee98f3820a79e9200f0bf76b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python {{ python_min }}
   run:
     - google-cloud-monitoring <2.0.0
     - google-cloud-trace >=0.24.0,<1.0.0
     - opentelemetry-api =={{ version }}
     - opentelemetry-sdk =={{ version }}
-    - python >=3.5
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/GoogleCloudPlatform/opentelemetry-operations-python/tree/master/opentelemetry-exporter-google-cloud
